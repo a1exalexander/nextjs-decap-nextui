@@ -1,6 +1,7 @@
 import { Container, Row, Spacer, Text } from '@nextui-org/react';
 import Head from 'next/head';
 import Script from 'next/script';
+import data from '@/data/home.json';
 
 export default function Home() {
   return (
@@ -11,14 +12,10 @@ export default function Home() {
       <Container>
         <Spacer />
         <Row css={{ jc: 'center' }}>
-          <h1>Home</h1>
+          <h1>{data.title}</h1>
         </Row>
         <Text css={{ textAlign: 'center' }}>
-          This is a{' '}
-          <Text b color="primary">
-            home
-          </Text>{' '}
-          page. You can add your home page content here.
+          {data.description}
         </Text>
       </Container>
       <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
