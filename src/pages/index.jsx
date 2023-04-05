@@ -14,9 +14,7 @@ export default function Home() {
         <Row css={{ jc: 'center' }}>
           <h1>{data.title}</h1>
         </Row>
-        <Text css={{ textAlign: 'center' }}>
-          {data.description}
-        </Text>
+        <Text css={{ textAlign: 'center' }} dangerouslySetInnerHTML={{__html: String(data.description)}} />
       </Container>
       <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       <Script id="netlify">
