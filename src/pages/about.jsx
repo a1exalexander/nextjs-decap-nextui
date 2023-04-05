@@ -1,4 +1,12 @@
-import { Container, Row, Spacer, Text, Input, Button } from '@nextui-org/react';
+import {
+  Container,
+  Row,
+  Spacer,
+  Text,
+  Input,
+  Button,
+  Textarea,
+} from '@nextui-org/react';
 import Head from 'next/head';
 
 export default function About() {
@@ -56,6 +64,13 @@ export default function About() {
               type="email"
               label="Email"
               placeholder="alex@merge.rocks"
+            />
+            <Spacer y={0.5} />
+            <Textarea
+              fullWidth
+              name="message"
+              label="Message"
+              placeholder="Enter your amazing ideas."
             />
             <Spacer y={1} />
             <Button css={{ w: '100%' }} color="gradient" type="submit">
