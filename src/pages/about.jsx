@@ -8,7 +8,7 @@ export default function About() {
     const myForm = event.target;
     const formData = new FormData(myForm);
 
-    fetch('/about', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
@@ -41,6 +41,8 @@ export default function About() {
             name="contact"
             method="post"
             onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
+
             <Input
               fullWidth
               name="name"
