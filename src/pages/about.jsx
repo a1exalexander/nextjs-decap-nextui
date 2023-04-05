@@ -24,7 +24,8 @@ export default function About() {
           <form
             style={{ maxWidth: '400px', width: '100%' }}
             name="contact"
-            netlify>
+            method="POST"
+            data-netlify="true">
             <Input
               fullWidth
               name="name"
