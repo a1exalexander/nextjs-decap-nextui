@@ -2,6 +2,21 @@ import { Container, Row, Spacer, Text, Input, Button } from '@nextui-org/react';
 import Head from 'next/head';
 
 export default function About() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error));
+  };
+
   return (
     <>
       <Head>
@@ -24,8 +39,8 @@ export default function About() {
           <form
             style={{ maxWidth: '400px', width: '100%' }}
             name="contact"
-            method="POST"
-            data-netlify="true">
+            method="post"
+            onSubmit={handleSubmit}>
             <Input
               fullWidth
               name="name"
