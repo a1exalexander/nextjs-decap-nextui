@@ -1,0 +1,8 @@
+{
+  "description": "This is an about page. You can add your about information here.",
+  "title": "About",
+  "placeholderName": "Oleksandr Ratushnyi",
+  "placeholderEmail": "alex@merge.rocks",
+  "placeholderMessage": "Enter your amazing ideas.",
+  "submitButtonText": "Send"
+}

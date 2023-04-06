@@ -1,21 +1,45 @@
-import { Row, Spacer, Text, Container } from '@nextui-org/react';
+import { Row, Spacer, Text, Container, Link } from '@nextui-org/react';
 import Head from 'next/head';
+import data from '@/data/blog.json';
+import { sanitizeMeta } from '@/lib/meta';
+import { getPostNames } from '@/lib/cms';
 
-export default function Blog() {
+const meta = sanitizeMeta(data);
+
+export default function Blog({ posts }) {
   return (
     <>
       <Head>
-        <title>Blog | Merge Academy</title>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
       </Head>
       <Container>
         <Spacer />
         <Row css={{ jc: 'center' }}>
-          <h1>Blog</h1>
+          <h1>{data.title}</h1>
         </Row>
-        <Text css={{ textAlign: 'center' }}>
-          This is a <Text b color="success">blog</Text> page. You can add your blog posts here.
-        </Text>
+        <Row css={{ jc: 'center' }}>
+          <Text b color="error">
+            {data.description}
+          </Text>
+        </Row>
+        <Spacer y={2} />
+        <ul style={{ textAlign: 'center' }}>
+          {posts.map((slug) => (
+            <Link key={slug} href={`/blog/${slug}`}>
+              {slug}
+            </Link>
+          ))}
+        </ul>
       </Container>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getPostNames();
+
+  return { props: { posts } };
 }

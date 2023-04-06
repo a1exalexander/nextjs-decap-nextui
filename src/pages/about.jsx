@@ -8,6 +8,10 @@ import {
   Textarea,
 } from '@nextui-org/react';
 import Head from 'next/head';
+import data from '@/data/about.json';
+import { sanitizeMeta } from '@/lib/meta';
+
+const meta = sanitizeMeta(data);
 
 export default function About() {
   const handleSubmit = (event) => {
@@ -28,20 +32,21 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About | Merge Academy</title>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
       </Head>
       <Container>
         <Spacer />
         <Row css={{ jc: 'center' }}>
-          <h1>About</h1>
+          <h1>{data.title}</h1>
         </Row>
-        <Text css={{ textAlign: 'center' }}>
-          This is an{' '}
-          <Text b color="error">
-            about
-          </Text>{' '}
-          page. You can add your about information here.
-        </Text>
+        <Row css={{ jc: 'center' }}>
+          <Text b color="success">
+            {data.description}
+          </Text>
+        </Row>
         <Spacer y={2} />
         <Row css={{ jc: 'center' }}>
           <form
@@ -54,7 +59,7 @@ export default function About() {
             <Input
               fullWidth
               name="name"
-              label="Full Name"
+              label="Name"
               placeholder="Oleksandr Ratushnyi"
             />
             <Spacer y={0.5} />

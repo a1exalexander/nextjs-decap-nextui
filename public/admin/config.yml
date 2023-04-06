@@ -26,5 +26,23 @@ collections:
         file: 'src/data/home.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'CDescription', name: 'description', widget: 'markdown' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+      - label: 'blog'
+        name: 'blog'
+        format: json
+        file: 'src/data/blog.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+      - label: 'about'
+        name: 'about'
+        format: json
+        file: 'src/data/about.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Input Placeholder [name]', name: 'placeholderName', widget: 'string' }
+          - { label: 'Input Placeholder [email]', name: 'placeholderEmail', widget: 'string' }
+          - { label: 'Input Placeholder [message]', name: 'placeholderMessage', widget: 'string' }
+          - { label: 'Submit button text', name: 'submitButtonText', widget: 'string' }
 local_backend: true

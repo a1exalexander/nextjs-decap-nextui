@@ -20,6 +20,7 @@ const navLinks = [
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const parsedRoute = `/${router.route.split('/')[1]}`;
 
   return (
     <>
@@ -39,7 +40,7 @@ export default function App({ Component, pageProps }) {
             {navLinks.map((link) => {
               return (
                 <Navbar.Link
-                  isActive={link.href === router.route}
+                  isActive={link.href === parsedRoute}
                   key={link.href}
                   href={link.href}>
                   {link.label}
@@ -49,7 +50,7 @@ export default function App({ Component, pageProps }) {
           </Navbar.Content>
           <Navbar.Collapse disableAnimation>
             {navLinks.map((item) => {
-              const isActive = item.href === router.route;
+              const isActive = item.href === parsedRoute;
               return (
                 <Navbar.CollapseItem
                   key={item.href}
