@@ -1,12 +1,3 @@
-import {
-  Container,
-  Row,
-  Spacer,
-  Text,
-  Input,
-  Button,
-  Textarea,
-} from '@nextui-org/react';
 import Head from 'next/head';
 import data from '@/data/about.json';
 import { sanitizeMeta } from '@/lib/meta';
@@ -37,18 +28,18 @@ export default function About() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
       </Head>
-      <Container>
-        <Spacer />
-        <Row css={{ jc: 'center' }}>
+      <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+        <div style={{margin: '16px 0'}}></div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <h1>{data.title}</h1>
-        </Row>
-        <Row css={{ jc: 'center' }}>
-          <Text b color="success">
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <p>
             {data.description}
-          </Text>
-        </Row>
-        <Spacer y={2} />
-        <Row css={{ jc: 'center' }}>
+          </p>
+        </div>
+        <div style={{margin: '32px 0'}}></div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <form
             style={{ maxWidth: '400px', width: '100%' }}
             name="contact"
@@ -56,34 +47,34 @@ export default function About() {
             onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
 
-            <Input
-              fullWidth
+            <input
+              style={{width: '100%'}}
               name="name"
               label="Name"
               placeholder="Oleksandr Ratushnyi"
             />
-            <Spacer y={0.5} />
-            <Input
-              fullWidth
+            <div style={{margin: '8px 0'}}></div>
+            <input
+              style={{width: '100%'}}
               name="email"
               type="email"
               label="Email"
               placeholder="alex@merge.rocks"
             />
-            <Spacer y={0.5} />
-            <Textarea
-              fullWidth
+            <div style={{margin: '8px 0'}}></div>
+            <textarea
+              style={{width: '100%'}}
               name="message"
               label="Message"
               placeholder="Enter your amazing ideas."
             />
-            <Spacer y={1} />
-            <Button css={{ w: '100%' }} color="gradient" type="submit">
+            <div style={{margin: '16px 0'}}></div>
+            <button style={{ width: '100%' }} type="submit">
               Send
-            </Button>
+            </button>
           </form>
-        </Row>
-      </Container>
+        </div>
+      </div>
     </>
   );
 }

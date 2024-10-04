@@ -1,30 +1,27 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
-import { Col, Container, Image, Row, Spacer } from '@nextui-org/react';
+import {MDXRemote} from 'next-mdx-remote'
+import {serialize} from 'next-mdx-remote/serialize';
 import { getPostPaths, getPost } from '@/lib/cms';
+import Image from 'next/image';
 
 export default function Post({ body, title, thumbnail }) {
   return (
-    <Container css={{ textAlign: 'center' }}>
-      <Spacer />
-
+    <div style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
+      <div style={{margin: '16px 0'}}></div>
       <h1>{title}</h1>
-      <Spacer y={0.5} />
+      <div style={{margin: '8px 0'}}></div>
       <Image
-        showSkeleton
         width={400}
         height={300}
-        objectFit="cover"
-        maxDelay={10000}
+        style={{objectFit: 'cover'}}
         src={thumbnail}
         alt={title}
       />
 
-      <Spacer y={2} />
+      <div style={{margin: '32px 0'}}></div>
       <article style={{ textAlign: 'left' }}>
         <MDXRemote {...body} />
       </article>
-    </Container>
+    </div>
   );
 }
 
@@ -36,7 +33,9 @@ export async function getStaticProps(req) {
       notFound: true,
     };
   }
+
   const body = await serialize(source.body);
+
   return { props: { ...source, body } };
 }
 

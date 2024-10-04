@@ -1,8 +1,8 @@
-import { Row, Spacer, Text, Container, Link } from '@nextui-org/react';
 import Head from 'next/head';
 import data from '@/data/blog.json';
 import { sanitizeMeta } from '@/lib/meta';
 import { getPostNames } from '@/lib/cms';
+import Link from 'next/link';
 
 const meta = sanitizeMeta(data);
 
@@ -15,17 +15,17 @@ export default function Blog({ posts }) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
       </Head>
-      <Container>
-        <Spacer />
-        <Row css={{ jc: 'center' }}>
+      <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+        <div style={{margin: '16px 0'}}></div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <h1>{data.title}</h1>
-        </Row>
-        <Row css={{ jc: 'center' }}>
-          <Text b color="error">
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <p>
             {data.description}
-          </Text>
-        </Row>
-        <Spacer y={2} />
+          </p>
+        </div>
+        <div style={{margin: '32px 0'}}></div>
         <ul style={{ textAlign: 'center' }}>
           {posts.map((slug) => (
             <Link key={slug} href={`/blog/${slug}`}>
@@ -33,7 +33,7 @@ export default function Blog({ posts }) {
             </Link>
           ))}
         </ul>
-      </Container>
+      </div>
     </>
   );
 }

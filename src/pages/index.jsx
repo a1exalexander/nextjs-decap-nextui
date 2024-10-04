@@ -1,4 +1,3 @@
-import { Container, Row, Spacer, Text } from '@nextui-org/react';
 import Head from 'next/head';
 import Script from 'next/script';
 import data from '@/data/home.json';
@@ -15,17 +14,17 @@ export default function Home() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
       </Head>
-      <Container>
-        <Spacer />
-        <Row css={{ jc: 'center' }}>
+      <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+        <div style={{margin: '16px 0'}}></div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <h1>{data.title}</h1>
-        </Row>
-        <Row css={{ jc: 'center' }}>
-          <Text b color="primary">
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <p>
             {data.description}
-          </Text>
-        </Row>
-      </Container>
+          </p>
+        </div>
+      </div>
       <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       <Script id="netlify">
         {`

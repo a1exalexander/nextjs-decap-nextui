@@ -1,26 +1,26 @@
-import Head from 'next/head';
-import { Navbar, NextUIProvider, Link } from '@nextui-org/react';
-import { useRouter } from 'next/router';
-import { Routes } from '@/constants';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { Routes } from "@/constants";
+import Link from "next/link";
 
 const navLinks = [
   {
     href: Routes.HOME,
-    label: 'Home',
+    label: "Home",
   },
   {
     href: Routes.ABOUT,
-    label: 'About',
+    label: "About",
   },
   {
     href: Routes.BLOG,
-    label: 'Blog',
+    label: "Blog",
   },
 ];
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const parsedRoute = `/${router.route.split('/')[1]}`;
+  const parsedRoute = `/${router.route.split("/")[1]}`;
 
   return (
     <>
@@ -30,50 +30,22 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NextUIProvider>
-        <Navbar isBordered variant="floating">
-          <Navbar.Toggle showIn="xs" />
-          <Navbar.Content
-            css={{ jc: 'center', w: '100%' }}
-            hideIn="xs"
-            variant="highlight-rounded">
-            {navLinks.map((link) => {
-              return (
-                <Navbar.Link
-                  isActive={link.href === parsedRoute}
-                  key={link.href}
-                  href={link.href}>
-                  {link.label}
-                </Navbar.Link>
-              );
-            })}
-          </Navbar.Content>
-          <Navbar.Collapse disableAnimation>
-            {navLinks.map((item) => {
-              const isActive = item.href === parsedRoute;
-              return (
-                <Navbar.CollapseItem
-                  key={item.href}
-                  activeColor="warning"
-                  css={{
-                    color: isActive ? '$error' : '',
-                  }}
-                  isActive={isActive}>
-                  <Link
-                    color="inherit"
-                    css={{
-                      minWidth: '100%',
-                    }}
-                    href={item.href}>
-                    {item.label}
-                  </Link>
-                </Navbar.CollapseItem>
-              );
-            })}
-          </Navbar.Collapse>
-        </Navbar>
-        <Component {...pageProps} />
-      </NextUIProvider>
+      <div>
+        <div>
+          {navLinks.map((link) => {
+            return (
+              <Link
+                style={{color: link.href === parsedRoute ? 'hotpink' : 'blue'}}
+                key={link.href}
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+      <Component {...pageProps} />
     </>
   );
 }
