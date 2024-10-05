@@ -1,7 +1,7 @@
 export const sanitizeMeta = (meta) => {
   const { title, description, image, url, type } = meta;
-  const defaultTitle = 'Next + Decap + NextUI';
-  const defaultDescription = 'Website template using Next.js, Decap and NextUI';
+  const defaultTitle = 'Next + Decap';
+  const defaultDescription = 'Website template using Next.js and Decap CMS';
 
   return {
     title: title ? `${title} | ${defaultTitle}` : defaultTitle,
