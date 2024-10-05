@@ -1,24 +1,27 @@
-import {MDXRemote} from 'next-mdx-remote'
-import {serialize} from 'next-mdx-remote/serialize';
-import { getPostPaths, getPost } from '@/lib/cms';
-import Image from 'next/image';
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { getPostPaths, getPost } from "@/lib/cms";
+import Image from "next/image";
 
 export default function Post({ body, title, thumbnail }) {
   return (
-    <div style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
-      <div style={{margin: '16px 0'}}></div>
+    <div style={{ textAlign: "center" }}>
+      <div style={{ margin: "16px 0" }}></div>
       <h1>{title}</h1>
-      <div style={{margin: '8px 0'}}></div>
-      <Image
-        width={400}
-        height={300}
-        style={{objectFit: 'cover'}}
-        src={thumbnail}
-        alt={title}
-      />
+      <div style={{ margin: "8px 0" }}></div>
+      <div
+        style={{ width: "100%", position: "relative", paddingBottom: "50%" }}
+      >
+        <Image
+          style={{ objectFit: "cover", objectPosition: "top" }}
+          fill
+          src={thumbnail}
+          alt={title}
+        />
+      </div>
 
-      <div style={{margin: '32px 0'}}></div>
-      <article style={{ textAlign: 'left' }}>
+      <div style={{ margin: "32px 0" }}></div>
+      <article className="post" style={{ textAlign: "left" }}>
         <MDXRemote {...body} />
       </article>
     </div>

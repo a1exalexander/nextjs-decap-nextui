@@ -26,13 +26,13 @@ export default function Blog({ posts }) {
           </p>
         </div>
         <div style={{margin: '32px 0'}}></div>
-        <ul style={{ textAlign: 'center' }}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
           {posts.map((slug) => (
             <Link key={slug} href={`/blog/${slug}`}>
               {slug}
             </Link>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

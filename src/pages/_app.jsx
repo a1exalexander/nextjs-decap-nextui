@@ -2,6 +2,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Routes } from "@/constants";
 import Link from "next/link";
+import '../styles/global.css';
+import '../styles/post.css';
 
 const navLinks = [
   {
@@ -31,11 +33,13 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", padding: '24px 32px' }}>
           {navLinks.map((link) => {
             return (
               <Link
-                style={{color: link.href === parsedRoute ? 'hotpink' : 'blue'}}
+                style={{
+                  color: link.href === parsedRoute ? "hotpink" : "blue",
+                }}
                 key={link.href}
                 href={link.href}
               >

@@ -1,0 +1,132 @@
+/* medium post styles for HTML tags */
+
+/* Post */
+
+.post {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+/* Headings */
+
+.post h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.post h2 {
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.post h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 1rem;
+}
+
+.post h4 {
+  font-size: 1.25rem;
+  margin: 1rem 0 1rem;
+}
+
+.post h5 {
+  font-size: 1rem;
+  margin: 1rem 0 1rem;
+}
+
+.post h6 {
+  font-size: 0.875rem;
+  margin: 1rem 0 1rem;
+}
+
+/* Paragraphs */
+
+.post p {
+  margin: 1rem 0;
+}
+
+/* Lists */
+
+.post ul,
+.post ol {
+  margin: 1rem 0;
+}
+
+.post li {
+  margin: 0.5rem 0;
+}
+
+/* Links */
+
+.post a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+/* Images */
+
+.post img {
+  width: 100%;
+  max-width: calc(100% - 64px);
+  height: auto;
+  display: block;
+  margin: 24px auto;
+}
+
+/* Blockquote */
+
+.post blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #f9f9f9;
+  border-left: 0.25rem solid #0077cc;
+}
+
+/* Code */
+
+.post pre {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+
+.post code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.875rem;
+  background-color: #f9f9f9;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Tables */
+
+.post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.post th,
+.post td {
+  border: 1px solid #f9f9f9;
+  padding: 0.5rem;
+}
+
+.post th {
+  background-color: #f9f9f9;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 700px) {
+  .post {
+    padding: 0 0.5rem;
+  }
+}
